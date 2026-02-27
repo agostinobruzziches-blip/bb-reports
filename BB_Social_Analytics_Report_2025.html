@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benedetta Bruzziches — Social Analytics 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a1a;
+  --ink-soft: #3a3a3a;
+  --ink-muted: #6b6b6b;
+  --ink-faint: #9a9a9a;
+  --surface: #faf9f7;
+  --surface-warm: #f5f2ed;
+  --surface-card: #ffffff;
+  --gold: #b8860b;
+  --gold-soft: #d4a843;
+  --gold-bg: #fdf8ef;
+  --accent: #4a6741;
+  --accent-bg: #eef3ec;
+  --red: #b5453a;
+  --red-bg: #fdf0ee;
+  --green: #3a7d53;
+  --green-bg: #eef7f1;
+  --blue: #3a6b9f;
+  --border: #e8e5e0;
+  --border-light: #f0ede8;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--surface);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === HERO === */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(175deg, #1a1a1a 0%, #2c2520 40%, #3d2e1e 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(184,134,11,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 30%, rgba(184,134,11,0.05) 0%, transparent 50%);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-brand {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  color: #f5f2ed;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  animation: fadeUp 1.2s ease-out;
+}
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 300;
+  color: var(--gold-soft);
+  letter-spacing: 0.15em;
+  margin-bottom: 3rem;
+  animation: fadeUp 1.2s ease-out 0.2s both;
+}
+.hero-divider {
+  width: 80px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 2rem;
+  animation: fadeUp 1.2s ease-out 0.4s both;
+}
+.hero-sub {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: rgba(245,242,237,0.5);
+  letter-spacing: 0.08em;
+  animation: fadeUp 1.2s ease-out 0.5s both;
+}
+.hero-sub span { display: block; margin-top: 0.3rem; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === LAYOUT === */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--border-light);
+  animation: sectionIn 0.6s ease-out both;
+}
+.section:last-child { border-bottom: none; }
+
+@keyframes sectionIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* === TYPOGRAPHY === */
+h1.section-number {
+  font-family: var(--serif);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+h1.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+h2 {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 3rem 0 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+h3 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 2rem 0 0.8rem;
+}
+p { margin-bottom: 1rem; color: var(--ink-soft); }
+p.lead { font-size: 1.05rem; color: var(--ink); line-height: 1.75; }
+strong { color: var(--ink); font-weight: 600; }
+.text-gold { color: var(--gold); }
+.text-green { color: var(--green); }
+.text-red { color: var(--red); }
+
+/* === KPI GRID === */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 2rem 0;
+}
+.kpi-card {
+  background: var(--surface-card);
+  padding: 1.5rem;
+  text-align: center;
+}
+.kpi-value {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.kpi-value.gold { color: var(--gold); }
+.kpi-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-top: 0.4rem;
+}
+.kpi-sub {
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  margin-top: 0.2rem;
+}
+
+/* === TABLES === */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+thead th {
+  background: var(--ink);
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+thead th.right { text-align: right; }
+thead th.center { text-align: center; }
+tbody td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: var(--surface); }
+tbody tr:hover { background: var(--gold-bg); }
+td.right { text-align: right; }
+td.center { text-align: center; }
+td.mono { font-family: var(--mono); font-size: 0.82rem; }
+td.bold { font-weight: 600; color: var(--ink); }
+td.gold { color: var(--gold); font-weight: 600; }
+td.green { color: var(--green); font-weight: 600; }
+td.red { color: var(--red); font-weight: 600; }
+
+/* === INSIGHT BLOCKS === */
+.insight {
+  background: var(--gold-bg);
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+.insight p { margin-bottom: 0; color: var(--ink-soft); }
+.insight strong { color: var(--gold); }
+
+.insight-green {
+  background: var(--green-bg);
+  border-left-color: var(--green);
+}
+.insight-green strong { color: var(--green); }
+
+.insight-red {
+  background: var(--red-bg);
+  border-left-color: var(--red);
+}
+.insight-red strong { color: var(--red); }
+
+/* === PATTERN BLOCKS === */
+.pattern {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.pattern:last-child { border-bottom: none; }
+.pattern-num {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--gold-soft);
+  float: left;
+  margin-right: 1rem;
+  line-height: 1;
+}
+.pattern-title { font-weight: 600; color: var(--ink); }
+.pattern p { margin-bottom: 0; }
+
+/* === COMPARISON === */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.compare-card {
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  background: var(--surface-card);
+}
+.compare-card h4 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid;
+}
+.compare-card.ig h4 { border-color: #E1306C; color: #C13584; }
+.compare-card.fb h4 { border-color: #1877F2; color: #1877F2; }
+.compare-stat { display: flex; justify-content: space-between; padding: 0.4rem 0; font-size: 0.85rem; }
+.compare-stat span:last-child { font-weight: 600; font-family: var(--mono); font-size: 0.82rem; }
+
+/* === CALENDAR === */
+.cal-grid {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 1.5rem 0;
+  font-size: 0.82rem;
+}
+.cal-cell {
+  background: var(--surface-card);
+  padding: 0.7rem 1rem;
+}
+.cal-cell.header {
+  background: var(--ink);
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cal-cell.day {
+  font-weight: 600;
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  background: var(--surface-warm);
+}
+.cal-cell.best { background: var(--gold-bg); }
+
+/* === PILL TAGS === */
+.pill {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.pill-gold { background: var(--gold-bg); color: var(--gold); }
+.pill-green { background: var(--green-bg); color: var(--green); }
+.pill-red { background: var(--red-bg); color: var(--red); }
+
+/* === FOOTER === */
+.footer {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--ink);
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+}
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.5rem;
+}
+
+/* === NAV === */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250,249,247,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 0;
+  font-size: 0.72rem;
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.nav a:hover { color: var(--gold); }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .compare-grid { grid-template-columns: 1fr; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .container { padding: 0 1.2rem; }
+  .section { padding: 3rem 0; }
+}
+
+@media print {
+  .nav { display: none; }
+  .hero { min-height: auto; padding: 3rem 2rem; }
+  .section { break-inside: avoid; padding: 2rem 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-brand">Benedetta Bruzziches</div>
+    <div class="hero-title">Social Media Analytics Report 2025</div>
+    <div class="hero-divider"></div>
+    <div class="hero-sub">
+      Report Strategico & Piano Editoriale 2026
+      <span>Periodo: 1 Gennaio — 31 Dicembre 2025</span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#executive">Executive Summary</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#facebook">Facebook</a>
+    <a href="#cross">Cross-Platform</a>
+    <a href="#benchmark">Benchmark</a>
+    <a href="#piano2026">Piano 2026</a>
+    <a href="#dashboard">Dashboard KPI</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- 1. EXECUTIVE SUMMARY -->
+<section class="section" id="executive">
+<div class="container">
+  <h1 class="section-number">Sezione 01</h1>
+  <h1 class="section-title">Executive Summary</h1>
+
+  <h2>KPI Headline 2025</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-value gold">321</div>
+      <div class="kpi-label">Post Totali (IG + FB)</div>
+      <div class="kpi-sub">196 IG · 125 FB</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">66.960</div>
+      <div class="kpi-label">Interazioni Totali</div>
+      <div class="kpi-sub">50.364 IG · 16.596 FB</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">0,17%</div>
+      <div class="kpi-label">ER Medio Instagram</div>
+      <div class="kpi-sub">(likes + commenti) / followers</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value gold">0,70%</div>
+      <div class="kpi-label">ER Medio Facebook</div>
+      <div class="kpi-sub">(reactions + cm + shares) / followers</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">147.839</div>
+      <div class="kpi-label">Follower Instagram</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">18.906</div>
+      <div class="kpi-label">Fan Facebook</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">48.970</div>
+      <div class="kpi-label">Likes Totali IG</div>
+      <div class="kpi-sub">media 250/post</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">14.903</div>
+      <div class="kpi-label">Reactions Totali FB</div>
+      <div class="kpi-sub">media 119/post</div>
+    </div>
+  </div>
+
+  <h2>Confronto Semestrale H1 vs H2</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Metrica</th><th class="right">H1 (Gen–Giu)</th><th class="right">H2 (Lug–Dic)</th><th class="center">Variazione</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Post IG</td><td class="right mono">97</td><td class="right mono">99</td><td class="center green">+2%</td></tr>
+      <tr><td>Likes IG</td><td class="right mono">24.206</td><td class="right mono">24.764</td><td class="center green">+2,3%</td></tr>
+      <tr><td>Commenti IG</td><td class="right mono">689</td><td class="right mono">705</td><td class="center green">+2,3%</td></tr>
+      <tr><td>ER medio IG</td><td class="right mono">0,174%</td><td class="right mono">0,174%</td><td class="center">=</td></tr>
+      <tr><td>Post FB</td><td class="right mono">71</td><td class="right mono">54</td><td class="center red">−23,9%</td></tr>
+      <tr><td>Reactions FB</td><td class="right mono">9.036</td><td class="right mono">5.867</td><td class="center red">−35,1%</td></tr>
+      <tr><td>Commenti FB</td><td class="right mono">600</td><td class="right mono">363</td><td class="center red">−39,5%</td></tr>
+      <tr><td>Shares FB</td><td class="right mono">524</td><td class="right mono">206</td><td class="center red">−60,7%</td></tr>
+      <tr><td>ER medio FB</td><td class="right mono">0,757%</td><td class="right mono">0,630%</td><td class="center red">−16,8%</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="insight">
+    <p><strong>Osservazione chiave:</strong> Instagram mantiene una performance stabile tra i due semestri, mentre Facebook registra un netto calo nel H2, in particolare su shares (−60,7%) e commenti (−39,5%). La riduzione della frequenza di pubblicazione su FB nel secondo semestre (da 71 a 54 post) ha contribuito significativamente al calo dell'engagement complessivo.</p>
+  </div>
+
+</div>
+</section>
+
+<!-- 2. INSTAGRAM DEEP DIVE -->
+<section class="section" id="instagram">
+<div class="container">
+  <h1 class="section-number">Sezione 02</h1>
+  <h1 class="section-title">Instagram Deep Dive</h1>
+
+  <h2>Performance per Tipo di Contenuto</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Tipo</th><th class="right">N. Post</th><th class="right">% Mix</th><th class="right">Avg Likes</th><th class="right">Avg Commenti</th><th class="right">ER Medio</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="bold">Carousel</td><td class="right mono">108</td><td class="right">55,1%</td><td class="right mono">260</td><td class="right mono">7,1</td><td class="right mono bold">0,181%</td></tr>
+      <tr><td>Reel</td><td class="right mono">65</td><td class="right">33,2%</td><td class="right mono">255</td><td class="right mono bold">8,1</td><td class="right mono">0,178%</td></tr>
+      <tr><td>Image</td><td class="right mono">23</td><td class="right">11,7%</td><td class="right mono">187</td><td class="right mono">4,4</td><td class="right mono">0,129%</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>I Carousel dominano sia in volume (55% del content mix) che in performance, con l'ER medio più alto (0,181%). I Reel seguono molto da vicino con 0,178% ma generano più commenti per post (8,1 vs 7,1), indicando maggiore capacità di stimolare conversazione. Le immagini singole sottoperformano nettamente con un ER del 30% inferiore rispetto agli altri formati.</p>
+
+  <h2>Top 20 Post per Engagement Rate</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th class="center">#</th><th>Data</th><th>Tipo</th><th class="right">ER%</th><th class="right">Likes</th><th>Tema Principale</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="center bold">1</td><td>07/07</td><td><span class="pill pill-gold">Carousel</span></td><td class="right gold mono">2,77%</td><td class="right mono">4.007</td><td>Lancio Pondy — storytelling India</td></tr>
+      <tr><td class="center bold">2</td><td>24/07</td><td><span class="pill pill-gold">Carousel</span></td><td class="right gold mono">1,63%</td><td class="right mono">2.364</td><td>Saturn's Rings — poetico / celeb</td></tr>
+      <tr><td class="center bold">3</td><td>05/05</td><td><span class="pill pill-gold">Carousel</span></td><td class="right gold mono">1,22%</td><td class="right mono">1.791</td><td>Met Gala retrospettiva</td></tr>
+      <tr><td class="center">4</td><td>17/03</td><td><span class="pill pill-green">Reel</span></td><td class="right mono">0,67%</td><td class="right mono">973</td><td>How We Make It: Yennefer</td></tr>
+      <tr><td class="center">5</td><td>25/01</td><td><span class="pill pill-gold">Carousel</span></td><td class="right mono">0,60%</td><td class="right mono">854</td><td>Vita a Caprarola — personale</td></tr>
+      <tr><td class="center">6</td><td>08/05</td><td><span class="pill pill-gold">Carousel</span></td><td class="right mono">0,50%</td><td class="right mono">686</td><td>Compleanno Benedetta</td></tr>
+      <tr><td class="center">7</td><td>09/06</td><td><span class="pill pill-green">Reel</span></td><td class="right mono">0,49%</td><td class="right mono">699</td><td>How We Make It: Bisbetica Domata</td></tr>
+      <tr><td class="center">8</td><td>13/06</td><td><span class="pill pill-gold">Carousel</span></td><td class="right mono">0,48%</td><td class="right mono">685</td><td>Storytelling luoghi e viaggio</td></tr>
+      <tr><td class="center">9</td><td>10/10</td><td><span class="pill pill-green">Reel</span></td><td class="right mono">0,43%</td><td class="right mono">624</td><td>How We Make It: Iris</td></tr>
+      <tr><td class="center">10</td><td>22/01</td><td><span class="pill pill-gold">Carousel</span></td><td class="right mono">0,43%</td><td class="right mono">604</td><td>Bazaar India / Press</td></tr>
+      <tr><td class="center">11</td><td>01/08</td><td><span class="pill pill-green">Reel</span></td><td class="right mono">0,41%</td><td class="right mono">560</td><td>Carmen — voce Benedetta</td></tr>
+      <tr><td class="center">12</td><td>04/01</td><td><span class="pill pill-green">Reel</span></td><td class="right mono">0,40%</td><td class="right mono">574</td><td>Lancio Serena — voce Benedetta</td></tr>
+      <tr><td class="center">13</td><td>09/07</td><td>Image</td><td class="right mono">0,37%</td><td class="right mono">547</td><td>Usha storytelling India</td></tr>
+      <tr><td class="center">14</td><td>14/11</td><td><span class="pill pill-green">Reel</span></td><td class="right mono">0,36%</td><td class="right mono">530</td><td>It Takes a Village: Venus</td></tr>
+      <tr><td class="center">15</td><td>08/08</td><td><span class="pill pill-green">Reel</span></td><td class="right mono">0,36%</td><td class="right mono">524</td><td>Artigianalità — riconciliazione</td></tr>
+      <tr><td class="center">16</td><td>07/01</td><td><span class="pill pill-green">Reel</span></td><td class="right mono">0,36%</td><td class="right mono">528</td><td>Sentimenti e lavoro manuale</td></tr>
+      <tr><td class="center">17</td><td>11/06</td><td><span class="pill pill-gold">Carousel</span></td><td class="right mono">0,34%</td><td class="right mono">497</td><td>Usha preview esclusiva</td></tr>
+      <tr><td class="center">18</td><td>13/01</td><td><span class="pill pill-green">Reel</span></td><td class="right mono">0,32%</td><td class="right mono">473</td><td>How We Make It: Venus</td></tr>
+      <tr><td class="center">19</td><td>25/09</td><td><span class="pill pill-green">Reel</span></td><td class="right mono">0,31%</td><td class="right mono">441</td><td>Milan Fashion Week</td></tr>
+      <tr><td class="center">20</td><td>16/10</td><td>Image</td><td class="right mono">0,29%</td><td class="right mono">412</td><td>Rif. Dante / letteratura</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Pattern identificati nei Top 20 post</h3>
+
+  <div class="pattern">
+    <div class="pattern-num">1</div>
+    <p><span class="pattern-title">Storytelling emozionale e culturale.</span> I post con il più alto ER raccontano storie profonde legate a culture, luoghi, emozioni. Il #1 (Pondy, ER 2,77%) narra l'ispirazione indiana. Riferimenti ad arte, letteratura e poesia generano connessione emotiva.</p>
+  </div>
+  <div class="pattern">
+    <div class="pattern-num">2</div>
+    <p><span class="pattern-title">Serie "This is how we make it".</span> Presente 5 volte nella Top 20 (Yennefer, Bisbetica Domata, Iris, Venus-Mercury, Venus). Format consolidato che combina artigianalità e processo creativo. ER medio della serie: 0,42%.</p>
+  </div>
+  <div class="pattern">
+    <div class="pattern-num">3</div>
+    <p><span class="pattern-title">Celebrity e press moments.</span> Met Gala (#3, ER 1,22%) e Harper's Bazaar India (#10) confermano che i momenti di visibilità mediatica amplificano l'engagement in modo significativo.</p>
+  </div>
+  <div class="pattern">
+    <div class="pattern-num">4</div>
+    <p><span class="pattern-title">Voce personale di Benedetta.</span> Contenuti in cui Benedetta racconta in prima persona (compleanno, vita a Caprarola, citazioni personali) performano costantemente sopra la media.</p>
+  </div>
+  <div class="pattern">
+    <div class="pattern-num">5</div>
+    <p><span class="pattern-title">Carousel = re dell'engagement.</span> 10 dei Top 20 sono Carousel, 8 sono Reel, 2 Image. Il formato multi-immagine domina per le storie visive dei prodotti.</p>
+  </div>
+
+  <h2>Analisi Caption</h2>
+
+  <h3>Lunghezza Caption vs Engagement Rate</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Lunghezza</th><th class="right">N. Post</th><th class="right">ER Medio</th><th>Insight</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Corta (&lt;50 car.)</td><td class="right mono">30</td><td class="right mono">0,118%</td><td>Performance più bassa</td></tr>
+      <tr><td>Medio-breve (50–150)</td><td class="right mono">67</td><td class="right mono">0,138%</td><td>Sotto la media</td></tr>
+      <tr><td>Media (150–300)</td><td class="right mono">58</td><td class="right mono">0,172%</td><td>In linea con la media</td></tr>
+      <tr><td class="bold">Lunga (300+ car.)</td><td class="right mono bold">41</td><td class="right mono green">0,276%</td><td class="bold">Doppio rispetto alle corte (+134%)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="insight-green insight">
+    <p><strong>Evidenza netta:</strong> le caption lunghe (300+ caratteri) generano un ER del 134% superiore rispetto alle caption corte. Lo storytelling esteso è il formato vincente per Benedetta Bruzziches, coerente con il posizionamento luxury e la narrativa artigianale del brand.</p>
+  </div>
+
+  <h3>Lingua, Emoji e CTA</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Elemento</th><th>Dato</th><th>Osservazione</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Lingua prevalente</td><td class="mono">Inglese (76,5%)</td><td>150 post EN, 4 IT, 42 neutri/misti</td></tr>
+      <tr><td>Uso emoji</td><td class="mono">0%</td><td>Nessun post — coerente con tono luxury</td></tr>
+      <tr><td>Call-to-Action</td><td class="mono">42,3%</td><td>83 post con CTA (discover, get to know, .com)</td></tr>
+      <tr><td>Hashtag</td><td class="mono">5,1%</td><td>Solo 10 post con hashtag — strategia minimale</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>L'assenza totale di emoji è una scelta stilistica forte e coerente con il posizionamento luxury. L'uso quasi esclusivo dell'inglese riflette il target internazionale. Tuttavia, solo il 42% dei post include una CTA: un'opportunità significativa per incrementare le conversioni senza alterare il tone of voice.</p>
+
+  <h2>Orari e Giorni Ottimali di Pubblicazione</h2>
+
+  <h3>Per Giorno della Settimana</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Giorno</th><th class="right">N. Post</th><th class="right">ER Medio</th><th class="center">Rating</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="bold">Lunedì</td><td class="right mono">38</td><td class="right mono green">0,24%</td><td class="center"><span class="pill pill-green">OTTIMO</span></td></tr>
+      <tr><td>Giovedì</td><td class="right mono">42</td><td class="right mono">0,18%</td><td class="center"><span class="pill pill-gold">BUONO</span></td></tr>
+      <tr><td>Sabato</td><td class="right mono">20</td><td class="right mono">0,16%</td><td class="center">Medio</td></tr>
+      <tr><td>Venerdì</td><td class="right mono">36</td><td class="right mono">0,16%</td><td class="center">Medio</td></tr>
+      <tr><td>Mercoledì</td><td class="right mono">39</td><td class="right mono">0,14%</td><td class="center">Sotto media</td></tr>
+      <tr><td>Martedì</td><td class="right mono">17</td><td class="right mono">0,14%</td><td class="center">Sotto media</td></tr>
+      <tr><td>Domenica</td><td class="right mono">4</td><td class="right mono">0,10%</td><td class="center"><span class="pill pill-red">BASSO</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Per Fascia Oraria</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Ora</th><th class="right">N. Post</th><th class="right">ER Medio</th><th class="center">Rating</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="bold">09:00</td><td class="right mono">5</td><td class="right mono green">0,39%</td><td class="center"><span class="pill pill-green">PICCO MAX</span></td></tr>
+      <tr><td class="bold">15:00</td><td class="right mono">48</td><td class="right mono green">0,25%</td><td class="center"><span class="pill pill-green">OTTIMO</span></td></tr>
+      <tr><td>11:00</td><td class="right mono">2</td><td class="right mono">0,23%</td><td class="center"><span class="pill pill-gold">BUONO</span></td></tr>
+      <tr><td>14:00</td><td class="right mono">16</td><td class="right mono">0,21%</td><td class="center"><span class="pill pill-gold">BUONO</span></td></tr>
+      <tr><td>18:00</td><td class="right mono">15</td><td class="right mono">0,17%</td><td class="center">Medio</td></tr>
+      <tr><td>16:00</td><td class="right mono">54</td><td class="right mono">0,13%</td><td class="center">Sovrapubblicato ↓</td></tr>
+      <tr><td>17:00</td><td class="right mono">35</td><td class="right mono">0,12%</td><td class="center">Sotto media</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="insight">
+    <p><strong>Insight strategico:</strong> le ore 16:00-17:00 concentrano il 45% dei post ma con ER sotto la media, suggerendo saturazione. Le 9:00 del mattino mostrano il picco di ER (0,39%) con soli 5 post testati. Le 15:00 combinano volume elevato e buon ER, risultando la fascia più affidabile. <strong>Raccomandazione:</strong> diversificare gli orari, aumentando la pubblicazione alle 9:00 e 14:00-15:00.</p>
+  </div>
+
+  <h2>Trend Mensili e Stagionalità</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Mese</th><th class="right">Post</th><th class="right">Likes</th><th class="right">Commenti</th><th class="right">ER Medio</th><th>Evento / Note</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Gennaio</td><td class="right mono">19</td><td class="right mono">5.693</td><td class="right mono">157</td><td class="right mono">0,21%</td><td>Couture Week / Lanci inizio anno</td></tr>
+      <tr><td>Febbraio</td><td class="right mono">16</td><td class="right mono">2.773</td><td class="right mono">70</td><td class="right mono">0,12%</td><td>Post-Couture, contenuti standard</td></tr>
+      <tr><td>Marzo</td><td class="right mono">17</td><td class="right mono">4.160</td><td class="right mono">78</td><td class="right mono">0,17%</td><td>Women's Day, How We Make It</td></tr>
+      <tr><td>Aprile</td><td class="right mono">16</td><td class="right mono">2.570</td><td class="right mono">73</td><td class="right mono">0,11%</td><td>Mese debole, transizione</td></tr>
+      <tr><td class="bold">Maggio</td><td class="right mono">14</td><td class="right mono">4.902</td><td class="right mono">152</td><td class="right mono green">0,24%</td><td>Met Gala, compleanno Benedetta</td></tr>
+      <tr><td>Giugno</td><td class="right mono">15</td><td class="right mono">4.108</td><td class="right mono">159</td><td class="right mono">0,19%</td><td>Lanci estivi, Usha preview</td></tr>
+      <tr><td class="bold gold">Luglio</td><td class="right mono bold">18</td><td class="right mono bold">9.916</td><td class="right mono bold">268</td><td class="right mono gold">0,38%</td><td class="bold">PICCO: Pondy launch, Haute Couture</td></tr>
+      <tr><td>Agosto</td><td class="right mono">16</td><td class="right mono">3.036</td><td class="right mono">116</td><td class="right mono">0,13%</td><td>Rallentamento estivo</td></tr>
+      <tr><td>Settembre</td><td class="right mono">14</td><td class="right mono">2.733</td><td class="right mono">124</td><td class="right mono">0,14%</td><td>Milan Fashion Week</td></tr>
+      <tr><td>Ottobre</td><td class="right mono">17</td><td class="right mono">3.568</td><td class="right mono">128</td><td class="right mono">0,15%</td><td>Post-MFW, How We Make It</td></tr>
+      <tr><td>Novembre</td><td class="right mono">17</td><td class="right mono">3.146</td><td class="right mono">24</td><td class="right mono">0,13%</td><td>Calo commenti significativo</td></tr>
+      <tr><td>Dicembre</td><td class="right mono">17</td><td class="right mono">2.365</td><td class="right mono">45</td><td class="right mono red">0,10%</td><td>Minimo annuale</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Luglio è il mese d'oro del brand con un ER quasi doppio rispetto alla media annuale, trainato dal lancio di Pondy (4.007 likes, il post #1 dell'anno) e dalla Haute Couture. Maggio segue grazie a Met Gala e compleanno di Benedetta. Il secondo semestre mostra un declino progressivo fino al minimo di Dicembre (0,10%), suggerendo la necessità di una strategia di contenuti più forte per il periodo festivo.</p>
+
+  <h2>Reels vs Contenuto Statico</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Metrica</th><th class="center">Carousel</th><th class="center">Reel</th><th class="center">Image</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Volume</td><td class="center bold">108 (55%)</td><td class="center">65 (33%)</td><td class="center">23 (12%)</td></tr>
+      <tr><td>ER Medio</td><td class="center bold gold">0,181%</td><td class="center">0,178%</td><td class="center">0,129%</td></tr>
+      <tr><td>Avg Likes</td><td class="center bold">260</td><td class="center">255</td><td class="center">187</td></tr>
+      <tr><td>Avg Commenti</td><td class="center">7,1</td><td class="center bold">8,1</td><td class="center">4,4</td></tr>
+      <tr><td>Max Likes singolo</td><td class="center bold gold">4.007</td><td class="center">973</td><td class="center">547</td></tr>
+      <tr><td>Nella Top 20</td><td class="center bold">10 post</td><td class="center">8 post</td><td class="center">2 post</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Carousel e Reel performano in modo quasi identico per ER medio, ma con differenze qualitative importanti. I Carousel eccellono per likes e viralità (post top 4.007 likes), i Reel generano più conversazione (+14% commenti). Le immagini singole sono il formato più debole e andrebbero limitate a contenuti ad alto impatto visivo.</p>
+
+</div>
+</section>
+
+<!-- 3. FACEBOOK DEEP DIVE -->
+<section class="section" id="facebook">
+<div class="container">
+  <h1 class="section-number">Sezione 03</h1>
+  <h1 class="section-title">Facebook Deep Dive</h1>
+
+  <h2>Panoramica Pagina</h2>
+
+  <div class="kpi-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="kpi-card"><div class="kpi-value">18.906</div><div class="kpi-label">Fan / Follower</div></div>
+    <div class="kpi-card"><div class="kpi-value">125</div><div class="kpi-label">Post pubblicati</div></div>
+    <div class="kpi-card"><div class="kpi-value gold">0,70%</div><div class="kpi-label">ER Medio</div></div>
+  </div>
+
+  <p>Facebook presenta un engagement rate 4 volte superiore a Instagram (0,70% vs 0,17%), riflettendo una community più piccola ma significativamente più attiva. L'audience Facebook è prevalentemente italiana, come dimostrato dall'uso quasi esclusivo della lingua italiana (98% dei post).</p>
+
+  <h2>Performance per Tipo di Contenuto</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Tipo</th><th class="right">N. Post</th><th class="right">Avg Engagement</th><th class="right">ER Medio</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="bold">Video</td><td class="right mono">48</td><td class="right mono bold">153,5</td><td class="right mono green">0,812%</td></tr>
+      <tr><td>Album</td><td class="right mono">50</td><td class="right mono">134,8</td><td class="right mono">0,713%</td></tr>
+      <tr><td>Photo</td><td class="right mono">27</td><td class="right mono">92,1</td><td class="right mono">0,487%</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Top 10 Post Facebook</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th class="center">#</th><th>Data</th><th>Tipo</th><th class="right">Eng.</th><th class="right">ER%</th><th>Tema</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="center bold">1</td><td>24/06</td><td><span class="pill pill-green">Video</span></td><td class="right mono bold">521</td><td class="right gold mono">2,76%</td><td>Soprannomi di Caprarola (#madeintuscia)</td></tr>
+      <tr><td class="center bold">2</td><td>16/06</td><td><span class="pill pill-gold">Album</span></td><td class="right mono">509</td><td class="right gold mono">2,69%</td><td>Celebrity: De Lellis, Rodriguez, Ramazzotti, Ravotti</td></tr>
+      <tr><td class="center bold">3</td><td>08/05</td><td><span class="pill pill-green">Video</span></td><td class="right mono">496</td><td class="right mono">2,62%</td><td>Compleanno Benedetta — tradizione</td></tr>
+      <tr><td class="center">4</td><td>08/03</td><td><span class="pill pill-green">Video</span></td><td class="right mono">480</td><td class="right mono">2,54%</td><td>Amalia: incontro con l'ispirazione reale</td></tr>
+      <tr><td class="center">5</td><td>29/08</td><td><span class="pill pill-gold">Album</span></td><td class="right mono">465</td><td class="right mono">2,46%</td><td>Agostino: il CEO che non si definisce CEO</td></tr>
+      <tr><td class="center">6</td><td>17/12</td><td><span class="pill pill-green">Video</span></td><td class="right mono">444</td><td class="right mono">2,35%</td><td>Carmen: ispirazione dall'opera lirica</td></tr>
+      <tr><td class="center">7</td><td>07/11</td><td><span class="pill pill-gold">Album</span></td><td class="right mono">423</td><td class="right mono">2,24%</td><td>Ada: ritratto del team</td></tr>
+      <tr><td class="center">8</td><td>04/01</td><td><span class="pill pill-green">Video</span></td><td class="right mono">373</td><td class="right mono">1,97%</td><td>Lancio Serena — storytelling personale</td></tr>
+      <tr><td class="center">9</td><td>09/05</td><td><span class="pill pill-green">Video</span></td><td class="right mono">342</td><td class="right mono">1,81%</td><td>Festa Caprarola: ballo nel cerchio</td></tr>
+      <tr><td class="center">10</td><td>12/12</td><td><span class="pill pill-gold">Album</span></td><td class="right mono">334</td><td class="right mono">1,77%</td><td>Ariel: artigianalità e scultura</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Pattern Top 10 Facebook</h3>
+
+  <div class="pattern">
+    <div class="pattern-num">1</div>
+    <p><span class="pattern-title">Storie del territorio (Caprarola/Tuscia).</span> I post #1 e #9 celebrano la vita locale. Il video sui soprannomi di Caprarola è il post dell'anno per engagement.</p>
+  </div>
+  <div class="pattern">
+    <div class="pattern-num">2</div>
+    <p><span class="pattern-title">Ritratti del team.</span> I post su Agostino (#5), Ada (#7), Laura e gli artigiani generano forte engagement. L'audience FB apprezza conoscere le persone dietro il brand.</p>
+  </div>
+  <div class="pattern">
+    <div class="pattern-num">3</div>
+    <p><span class="pattern-title">Voce di Benedetta in prima persona.</span> Il compleanno (#3), Carmen (#6), Serena (#8): il racconto personale e emotivo è il motore dell'engagement.</p>
+  </div>
+  <div class="pattern">
+    <div class="pattern-num">4</div>
+    <p><span class="pattern-title">Celebrity italiane.</span> Il post #2 con De Lellis, Rodriguez, Ramazzotti e Ravotti dimostra l'efficacia del celebrity content con figure riconoscibili dal pubblico italiano.</p>
+  </div>
+
+  <h2>Trend Mensili Facebook</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Mese</th><th class="right">Post</th><th class="right">Reactions</th><th class="right">Commenti</th><th class="right">Shares</th><th class="right">Engagement</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Gennaio</td><td class="right mono">8</td><td class="right mono">919</td><td class="right mono">58</td><td class="right mono">42</td><td class="right mono">1.019</td></tr>
+      <tr><td>Febbraio</td><td class="right mono">9</td><td class="right mono">1.045</td><td class="right mono">56</td><td class="right mono">42</td><td class="right mono">1.143</td></tr>
+      <tr><td>Marzo</td><td class="right mono">9</td><td class="right mono">925</td><td class="right mono">51</td><td class="right mono">40</td><td class="right mono">1.016</td></tr>
+      <tr><td>Aprile</td><td class="right mono">12</td><td class="right mono">1.503</td><td class="right mono">75</td><td class="right mono bold">155</td><td class="right mono">1.733</td></tr>
+      <tr><td class="bold gold">Maggio</td><td class="right mono bold">17</td><td class="right mono bold">2.297</td><td class="right mono bold">274</td><td class="right mono bold">162</td><td class="right mono bold gold">2.733</td></tr>
+      <tr><td class="bold">Giugno</td><td class="right mono">16</td><td class="right mono bold">2.347</td><td class="right mono">86</td><td class="right mono">83</td><td class="right mono bold">2.516</td></tr>
+      <tr><td>Luglio</td><td class="center" colspan="5" style="color:var(--ink-faint); font-style:italic;">Nessun dato disponibile</td></tr>
+      <tr><td>Agosto</td><td class="right mono">8</td><td class="right mono">1.210</td><td class="right mono">64</td><td class="right mono">27</td><td class="right mono">1.301</td></tr>
+      <tr><td>Settembre</td><td class="right mono">11</td><td class="right mono">1.119</td><td class="right mono">43</td><td class="right mono">41</td><td class="right mono">1.203</td></tr>
+      <tr><td>Ottobre</td><td class="right mono">13</td><td class="right mono">1.103</td><td class="right mono">62</td><td class="right mono">58</td><td class="right mono">1.223</td></tr>
+      <tr><td>Novembre</td><td class="right mono">11</td><td class="right mono">1.053</td><td class="right mono">111</td><td class="right mono">48</td><td class="right mono">1.212</td></tr>
+      <tr><td>Dicembre</td><td class="right mono">11</td><td class="right mono">1.382</td><td class="right mono">83</td><td class="right mono">32</td><td class="right mono">1.497</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+</section>
+
+<!-- 4. CROSS-PLATFORM -->
+<section class="section" id="cross">
+<div class="container">
+  <h1 class="section-number">Sezione 04</h1>
+  <h1 class="section-title">Confronto Cross-Platform</h1>
+
+  <h2>Dove il Brand è Più Forte</h2>
+
+  <div class="compare-grid">
+    <div class="compare-card ig">
+      <h4>Instagram</h4>
+      <div class="compare-stat"><span>Audience</span><span>147.839</span></div>
+      <div class="compare-stat"><span>ER Medio</span><span>0,17%</span></div>
+      <div class="compare-stat"><span>Post/anno</span><span>196</span></div>
+      <div class="compare-stat"><span>Engagement</span><span>50.364</span></div>
+      <div class="compare-stat"><span>Commenti/post</span><span>7,1</span></div>
+      <div class="compare-stat"><span>Lingua</span><span>Inglese</span></div>
+      <div class="compare-stat"><span>Tono</span><span>Aspirazionale / Poetico</span></div>
+    </div>
+    <div class="compare-card fb">
+      <h4>Facebook</h4>
+      <div class="compare-stat"><span>Audience</span><span>18.906</span></div>
+      <div class="compare-stat"><span>ER Medio</span><span style="color:var(--green);font-weight:700">0,70%</span></div>
+      <div class="compare-stat"><span>Post/anno</span><span>125</span></div>
+      <div class="compare-stat"><span>Engagement</span><span>16.596</span></div>
+      <div class="compare-stat"><span>Commenti/post</span><span>7,7</span></div>
+      <div class="compare-stat"><span>Lingua</span><span>Italiano</span></div>
+      <div class="compare-stat"><span>Tono</span><span>Personale / Emotivo</span></div>
+    </div>
+  </div>
+
+  <p>Instagram è il canale di reach e awareness internazionale, con un'audience 7,8 volte superiore. Facebook è il canale di community e engagement profondo, con un ER 4 volte superiore e una connessione più intima con il pubblico italiano.</p>
+
+  <h2>Allocazione Risorse Consigliata</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Risorsa</th><th class="center">Instagram</th><th class="center">Facebook</th></tr></thead>
+    <tbody>
+      <tr><td>Tempo contenuti</td><td class="center bold">60%</td><td class="center">40%</td></tr>
+      <tr><td>Budget adv</td><td class="center bold">70%</td><td class="center">30%</td></tr>
+      <tr><td>Frequenza post</td><td class="center">4–5/settimana</td><td class="center">3/settimana</td></tr>
+      <tr><td>Priorità formato</td><td class="center">Carousel + Reel</td><td class="center">Video + Album</td></tr>
+      <tr><td>Lingua</td><td class="center">Inglese</td><td class="center">Italiano</td></tr>
+      <tr><td>Focus strategico</td><td class="center">Awareness globale</td><td class="center">Community locale</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+</section>
+
+<!-- 5. BENCHMARK -->
+<section class="section" id="benchmark">
+<div class="container">
+  <h1 class="section-number">Sezione 05</h1>
+  <h1 class="section-title">Benchmark Settore Luxury Fashion</h1>
+
+  <p class="lead">Confronto con le metriche medie del settore luxury fashion/accessories su Instagram nel 2025, basato su benchmark pubblicati da Rival IQ, Socialinsider e Later.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Metrica</th><th class="center">BB 2025</th><th class="center">Media Luxury</th><th class="center">Posizionamento</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>ER Instagram</td><td class="center mono">0,17%</td><td class="center mono">0,15–0,25%</td><td class="center">In media (fascia bassa)</td></tr>
+      <tr><td>ER Facebook</td><td class="center mono bold green">0,70%</td><td class="center mono">0,05–0,15%</td><td class="center"><span class="pill pill-green">ECCELLENTE (5-7x)</span></td></tr>
+      <tr><td>Commenti/post IG</td><td class="center mono">7,1</td><td class="center mono">3–8</td><td class="center">In media</td></tr>
+      <tr><td>Freq. post IG</td><td class="center mono">3,8/sett.</td><td class="center mono">3–5/sett.</td><td class="center">In media</td></tr>
+      <tr><td>% Reel nel mix</td><td class="center mono">33%</td><td class="center mono">40–60%</td><td class="center"><span class="pill pill-red">SOTTO</span></td></tr>
+      <tr><td>% Carousel nel mix</td><td class="center mono bold">55%</td><td class="center mono">25–35%</td><td class="center"><span class="pill pill-green">SOPRA</span></td></tr>
+      <tr><td>Uso hashtag</td><td class="center mono">5%</td><td class="center mono">60–80%</td><td class="center"><span class="pill pill-red">MOLTO SOTTO</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="insight-green insight">
+    <p><strong>Punti di forza:</strong> L'engagement Facebook è eccezionale, 5-7 volte la media di settore. La strategia Carousel è distintiva e performa bene. Il tone of voice poetico-letterario è unico nel settore.</p>
+  </div>
+  <div class="insight-red insight">
+    <p><strong>Aree di miglioramento:</strong> L'ER Instagram si posiziona nella fascia bassa della media. La percentuale di Reel (33%) è sotto il benchmark (40-60%). L'uso quasi assente di hashtag limita la discoverability. L'assenza di dati su reach/impressions impedisce un'analisi completa dell'efficacia distributiva.</p>
+  </div>
+
+</div>
+</section>
+
+<!-- 6. PIANO 2026 -->
+<section class="section" id="piano2026">
+<div class="container">
+  <h1 class="section-number">Sezione 06</h1>
+  <h1 class="section-title">Piano Editoriale 2026 — Raccomandazioni</h1>
+
+  <h2>Content Mix Ottimale</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Formato</th><th class="center">2025 Attuale</th><th class="center">2026 Target</th><th>Razionale</th></tr></thead>
+    <tbody>
+      <tr><td>Carousel</td><td class="center mono">55%</td><td class="center mono">45%</td><td>Ridurre leggermente ma mantenere centrale</td></tr>
+      <tr><td class="bold">Reel</td><td class="center mono">33%</td><td class="center mono bold green">40%</td><td>Aumentare per allineamento benchmark e algoritmo</td></tr>
+      <tr><td>Image</td><td class="center mono">12%</td><td class="center mono">5%</td><td>Solo per key visual ad alto impatto</td></tr>
+      <tr><td class="bold">Stories (nuovo)</td><td class="center mono">—</td><td class="center mono bold green">10%</td><td>Aggiungere per interazione quotidiana</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Top 5 Content Pillars</h2>
+
+  <h3>Pillar 1 — "This Is How We Make It" (Artigianalità)</h3>
+  <p><strong>Formato:</strong> Reel (60-90 sec) · <strong>Frequenza:</strong> 2/mese · ER medio 0,42% nella Top 20. Mostra il processo creativo dallo schizzo al prodotto finito. Espandere con varianti: "The Hands Behind" (focus artigiani), "From Sketch to Bag" (timelapse).</p>
+
+  <h3>Pillar 2 — Storytelling Culturale e Poetico</h3>
+  <p><strong>Formato:</strong> Carousel (4-6 slide) · <strong>Frequenza:</strong> 3-4/mese · Driver #1 di engagement (Pondy ER 2,77%). Collegare ogni prodotto a una storia culturale, un luogo, un'opera d'arte, una donna della storia. Caption lunghe (300+ car.) con tono letterario.</p>
+
+  <h3>Pillar 3 — La Voce di Benedetta</h3>
+  <p><strong>Formato:</strong> Mix Carousel/Reel · <strong>Frequenza:</strong> 2-3/mese · Il racconto in prima persona è il cuore emotivo del brand. Compleanno, vita a Caprarola, ispirazione dei prodotti, incontri. Su FB in italiano, su IG in inglese.</p>
+
+  <h3>Pillar 4 — Celebrity & Press Moments</h3>
+  <p><strong>Formato:</strong> Carousel · <strong>Frequenza:</strong> Opportunistico (4-6/mese in stagione) · ER fino a 1,22%. Creare tempestivamente contenuti attorno a ogni celebrity sighting. Taggare e collaborare con le figure coinvolte.</p>
+
+  <h3>Pillar 5 — Il Team e il Territorio (FB Priority)</h3>
+  <p><strong>Formato:</strong> Video/Album su FB, Reel su IG · <strong>Frequenza:</strong> 2/mese · Ritratti del team, vita a Caprarola, tradizioni locali. Formato #1 su Facebook per engagement.</p>
+
+  <h2>Frequenza e Calendario Tipo Settimanale</h2>
+
+  <div class="cal-grid">
+    <div class="cal-cell header">Giorno</div>
+    <div class="cal-cell header">Instagram</div>
+    <div class="cal-cell header">Facebook</div>
+    <div class="cal-cell day best">Lunedì ★</div>
+    <div class="cal-cell best">Carousel storytelling (15:00)</div>
+    <div class="cal-cell best">Album/Video team (14:00)</div>
+    <div class="cal-cell day">Martedì</div>
+    <div class="cal-cell">Reel artigianalità (09:00)</div>
+    <div class="cal-cell" style="color:var(--ink-faint)">—</div>
+    <div class="cal-cell day best">Mercoledì</div>
+    <div class="cal-cell best">Carousel prodotto (14:00-15:00)</div>
+    <div class="cal-cell best">Video dietro le quinte (15:00)</div>
+    <div class="cal-cell day">Giovedì</div>
+    <div class="cal-cell">Reel o Carousel (15:00)</div>
+    <div class="cal-cell" style="color:var(--ink-faint)">—</div>
+    <div class="cal-cell day best">Venerdì ★</div>
+    <div class="cal-cell best">Celebrity/Press moment (09:00)</div>
+    <div class="cal-cell best">Post territorio/Caprarola (14:00)</div>
+    <div class="cal-cell day">Sabato</div>
+    <div class="cal-cell" style="color:var(--ink-faint)">Contenuto editoriale (opzionale)</div>
+    <div class="cal-cell" style="color:var(--ink-faint)">—</div>
+  </div>
+
+  <p><strong>Frequenza raccomandata:</strong> Instagram 4-5 post/settimana (attuale ~3,8). Facebook 3 post/settimana (attuale ~2,4). Prioritizzare il Lunedì (ER max) e le fasce 9:00 e 14:00-15:00.</p>
+
+  <h2>Strategia Hashtag</h2>
+
+  <h3>Da mantenere</h3>
+  <p>#benedettabruzziches (brand, ER 0,61%) · #bottegabruzziches (atelier, ER 0,17%) · #madeintuscia (territorio)</p>
+
+  <h3>Da introdurre (test 2026)</h3>
+  <p>#thisishowyoumakeit · #crystalmesh · #madeinitaly · #luxuryhandbags · #handcrafted · #eveningbag · #womenartisans</p>
+
+  <div class="insight">
+    <p><strong>Strategia:</strong> Passare dal 5% al 100% dei post con hashtag. Set fisso di 5-8 per post (non 30), combinando: 1 brand + 1 prodotto + 2-3 categoria + 1-2 valori. Inserirli in fondo alla caption, separati da una riga vuota, per mantenere l'eleganza del copy.</p>
+  </div>
+
+  <h2>Strategia Caption</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Elemento</th><th>Raccomandazione</th></tr></thead>
+    <tbody>
+      <tr><td>Lunghezza target</td><td class="bold">300-500 caratteri (ER +134% vs caption corte)</td></tr>
+      <tr><td>Tono</td><td>Poetico, letterario, evocativo — già perfetto</td></tr>
+      <tr><td>Lingua IG</td><td>Inglese primario, citazioni italiane per autenticità</td></tr>
+      <tr><td>Lingua FB</td><td>Italiano primario (mantenere)</td></tr>
+      <tr><td>CTA</td><td class="bold">Aumentare dal 42% al 70%. Soft CTA: "Discover at…", "Link in bio"</td></tr>
+      <tr><td>Emoji</td><td>Continuare a non usarle — coerente con luxury positioning</td></tr>
+      <tr><td>Struttura</td><td>Hook emozionale → Storytelling → Connessione al prodotto → CTA</td></tr>
+      <tr><td>Menzioni</td><td>Sempre taggare celebrity e collaboratori per amplificazione</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Content Gaps e Opportunità</h2>
+
+  <div class="pattern">
+    <div class="pattern-num">1</div>
+    <p><span class="pattern-title">User-Generated Content (UGC).</span> Assente nel 2025. Attivare strategia di repost clienti. Creare hashtag dedicato (#myBB o #wearingbruzziches). Alto potenziale di autenticità e social proof.</p>
+  </div>
+  <div class="pattern">
+    <div class="pattern-num">2</div>
+    <p><span class="pattern-title">Behind the Scenes quotidiano.</span> Solo 4 post BTS nel 2025. Aumentare con Stories quotidiane e Reel brevi del laboratorio, team al lavoro, spedizioni. Basso costo, alto potenziale di umanizzazione.</p>
+  </div>
+  <div class="pattern">
+    <div class="pattern-num">3</div>
+    <p><span class="pattern-title">Contenuti educativi / "Did You Know".</span> Assenti. Creare contenuti su maglia metallica, cristalli, tecnica artigianale, storia del brand. Formato Carousel ideale.</p>
+  </div>
+  <div class="pattern">
+    <div class="pattern-num">4</div>
+    <p><span class="pattern-title">Collaborazioni e co-creazioni.</span> Potenziale inesplorato. Collaborazioni con artisti, designer, musicisti in linea con il posizionamento culturale del brand.</p>
+  </div>
+  <div class="pattern">
+    <div class="pattern-num">5</div>
+    <p><span class="pattern-title">Periodo festivo (Nov-Dic).</span> ER 0,10-0,13% — minimo annuale. Sviluppare strategia gift-giving: guide regalo, edizioni limitate, countdown natalizio, storytelling delle feste a Caprarola.</p>
+  </div>
+  <div class="pattern">
+    <div class="pattern-num">6</div>
+    <p><span class="pattern-title">Interazione con la community.</span> Rispondere sistematicamente ai commenti, creare conversazione, ringraziare i follower più attivi. Incremento significativo dell'engagement organico.</p>
+  </div>
+
+  <h2>Momenti Chiave 2026</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Periodo</th><th>Evento</th><th>Strategia Contenuti</th></tr></thead>
+    <tbody>
+      <tr><td class="bold">Gen 20-26</td><td>Haute Couture Paris SS27</td><td>3-5 post: BTS, front row, celebrity</td></tr>
+      <tr><td>Feb 14</td><td>San Valentino</td><td>Gift guide: borse per "lei"</td></tr>
+      <tr><td class="bold">Feb 25 – Mar 1</td><td>MFW FW26/27</td><td>4-6 post: show, backstage, press</td></tr>
+      <tr><td>Mar 8</td><td>Giornata della Donna</td><td>Storytelling donne artigiane</td></tr>
+      <tr><td class="bold">Mag (tbc)</td><td>Met Gala</td><td>Real-time content, celebrity outfit</td></tr>
+      <tr><td class="gold">Mag 8</td><td>Compleanno Benedetta</td><td>Contenuto personale (top performer)</td></tr>
+      <tr><td class="bold gold">Giu-Lug</td><td>Haute Couture + Lanci Estate</td><td>PUSH MASSIMO: 5-6 post/settimana</td></tr>
+      <tr><td class="bold">Set 16-22</td><td>MFW SS27</td><td>Copertura completa</td></tr>
+      <tr><td>Ott-Nov</td><td>Lancio FW Collection</td><td>Carousel storytelling nuova collezione</td></tr>
+      <tr><td>Nov 25</td><td>Black Friday</td><td>Esclusività: contenuto "Why we don't"</td></tr>
+      <tr><td class="bold">Dic 1-24</td><td>Calendario dell'Avvento</td><td>24 giorni di storytelling: 1 borsa/giorno</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+</section>
+
+<!-- 7. DASHBOARD KPI -->
+<section class="section" id="dashboard">
+<div class="container">
+  <h1 class="section-number">Sezione 07</h1>
+  <h1 class="section-title">Dashboard KPI</h1>
+
+  <h2>Riepilogo Metriche 2025</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>KPI</th><th class="right">Instagram</th><th class="right">Facebook</th><th class="right">Totale</th></tr></thead>
+    <tbody>
+      <tr><td>Follower / Fan</td><td class="right mono">147.839</td><td class="right mono">18.906</td><td class="right mono bold">166.745</td></tr>
+      <tr><td>Post pubblicati</td><td class="right mono">196</td><td class="right mono">125</td><td class="right mono bold">321</td></tr>
+      <tr><td>Post/settimana</td><td class="right mono">3,8</td><td class="right mono">2,4</td><td class="right mono">6,2</td></tr>
+      <tr><td>Likes / Reactions</td><td class="right mono">48.970</td><td class="right mono">14.903</td><td class="right mono bold">63.873</td></tr>
+      <tr><td>Commenti</td><td class="right mono">1.394</td><td class="right mono">963</td><td class="right mono bold">2.357</td></tr>
+      <tr><td>Shares</td><td class="right mono" style="color:var(--ink-faint)">N/D</td><td class="right mono">730</td><td class="right mono">730+</td></tr>
+      <tr><td>Engagement totale</td><td class="right mono">50.364</td><td class="right mono">16.596</td><td class="right mono bold gold">66.960</td></tr>
+      <tr><td>Avg Likes/post</td><td class="right mono">250</td><td class="right mono">119</td><td class="right mono">—</td></tr>
+      <tr><td>Avg Commenti/post</td><td class="right mono">7,1</td><td class="right mono">7,7</td><td class="right mono">—</td></tr>
+      <tr><td>ER medio</td><td class="right mono">0,17%</td><td class="right mono bold green">0,70%</td><td class="right mono">—</td></tr>
+      <tr><td>Top ER singolo post</td><td class="right mono gold">2,77%</td><td class="right mono gold">2,76%</td><td class="right mono">—</td></tr>
+      <tr><td>Mese migliore</td><td class="right">Luglio (0,38%)</td><td class="right">Maggio (2.733)</td><td class="right">—</td></tr>
+      <tr><td>Mese peggiore</td><td class="right">Dicembre (0,10%)</td><td class="right">Marzo (1.016)</td><td class="right">—</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Target 2026</h2>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>KPI</th><th class="right">2025 Baseline</th><th class="right">Target 2026</th><th class="center">Crescita</th></tr></thead>
+    <tbody>
+      <tr><td>Follower IG</td><td class="right mono">147.839</td><td class="right mono bold">165.000</td><td class="center green">+11,6%</td></tr>
+      <tr><td>Fan FB</td><td class="right mono">18.906</td><td class="right mono bold">22.000</td><td class="center green">+16,4%</td></tr>
+      <tr><td>ER medio IG</td><td class="right mono">0,17%</td><td class="right mono bold green">0,25%</td><td class="center green">+47%</td></tr>
+      <tr><td>ER medio FB</td><td class="right mono">0,70%</td><td class="right mono bold green">0,85%</td><td class="center green">+21%</td></tr>
+      <tr><td>Post/settimana IG</td><td class="right mono">3,8</td><td class="right mono bold">4,5</td><td class="center green">+18%</td></tr>
+      <tr><td>Post/settimana FB</td><td class="right mono">2,4</td><td class="right mono bold">3,0</td><td class="center green">+25%</td></tr>
+      <tr><td>Commenti/post IG</td><td class="right mono">7,1</td><td class="right mono bold">10,0</td><td class="center green">+41%</td></tr>
+      <tr><td>Avg Likes/post IG</td><td class="right mono">250</td><td class="right mono bold">310</td><td class="center green">+24%</td></tr>
+      <tr><td>% Reel nel mix</td><td class="right mono">33%</td><td class="right mono bold">40%</td><td class="center green">+7pp</td></tr>
+      <tr><td>Caption con CTA</td><td class="right mono">42%</td><td class="right mono bold">70%</td><td class="center green">+28pp</td></tr>
+      <tr><td>Post con hashtag</td><td class="right mono">5%</td><td class="right mono bold">100%</td><td class="center green">+95pp</td></tr>
+      <tr><td>ER min mensile IG</td><td class="right mono red">0,10% (Dic)</td><td class="right mono bold">&gt;0,15%</td><td class="center">Floor garantito</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-brand">BENEDETTA BRUZZICHES</div>
+  <div>Report preparato — Dati: 1 Gennaio – 31 Dicembre 2025</div>
+</footer>
+
+</body>
+</html>
